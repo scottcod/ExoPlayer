@@ -1200,11 +1200,12 @@ import org.checkerframework.checker.nullness.compatqual.NullableType;
           int colorPrimaries = parent.readUnsignedShort();
           int transferCharacteristics = parent.readUnsignedShort();
           parent.skipBytes(2); // matrix_coefficients.
-          boolean fullRangeFlag = isNclx && (parent.readUnsignedByte() & 0b10000000) != 0;
+//          boolean fullRangeFlag = isNclx && (parent.readUnsignedByte() & 0b10000000) != 0;
           colorInfo =
               new ColorInfo(
                   ColorInfo.isoColorPrimariesToColorSpace(colorPrimaries),
-                  fullRangeFlag ? C.COLOR_RANGE_FULL : C.COLOR_RANGE_LIMITED,
+//                  fullRangeFlag ? C.COLOR_RANGE_FULL : C.COLOR_RANGE_LIMITED,
+                  C.COLOR_RANGE_FULL,
                   ColorInfo.isoTransferCharacteristicsToColorTransfer(transferCharacteristics),
                   /* hdrStaticInfo= */ null);
         } else {
